@@ -1,0 +1,35 @@
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/house?useUnicode=true&useSSL=false&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    pathmatch:
+      use-suffix-pattern: false
+      use-registered-suffix-pattern: true
+      contentnegotiation:
+        favor-path-extension: false
+
+mybatis:
+  type-aliases-package: lx.renthouse.Pojo
+  mapper-locations: classpath:mapper/*.xml
+server:
+  port: 8080
+
+
+
